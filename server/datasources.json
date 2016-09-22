@@ -1,0 +1,16 @@
+{
+  "db": {
+    "name": "db",
+    "connector": "memory"
+  },
+  "coolendar": {
+    "host": "localhost",
+    "port": 5432,
+    "url": "postgres://postgres:123@localhost/coolendar",
+    "database": "coolendar",
+    "password": "123",
+    "name": "coolendar",
+    "user": "postgres",
+    "connector": "postgresql"
+  }
+}
