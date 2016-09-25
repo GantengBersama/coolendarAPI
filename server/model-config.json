@@ -14,22 +14,30 @@
     ]
   },
   "User": {
-    "dataSource": "db"
+    "dataSource": "db",
+    "public": false
   },
   "AccessToken": {
-    "dataSource": "db",
+    "dataSource": "coolendar",
     "public": false
   },
   "ACL": {
-    "dataSource": "db",
+    "dataSource": "coolendar",
     "public": false
   },
   "RoleMapping": {
-    "dataSource": "db",
+    "dataSource": "coolendar",
     "public": false
   },
   "Role": {
-    "dataSource": "db",
+    "dataSource": "coolendar",
     "public": false
+  },
+  "user": {
+    "dataSource": "coolendar",
+    "public": true
+  },
+  "Email": {
+    "dataSource": "email"
   }
 }

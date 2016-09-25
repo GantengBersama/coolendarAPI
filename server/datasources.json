@@ -6,11 +6,27 @@
   "coolendar": {
     "host": "localhost",
     "port": 5432,
-    "url": "postgres://postgres:123@localhost/coolendar",
     "database": "coolendar",
     "password": "123",
     "name": "coolendar",
     "user": "postgres",
     "connector": "postgresql"
+  },
+  "email": {
+    "name": "email",
+    "defaultForType": "mail",
+    "connector": "mail",
+    "transports": [
+      {
+        "type": "SMTP",
+        "host": "smtp.gmail.com",
+        "secure": true,
+        "port": 465,
+        "auth": {
+          "user": "coolendar.official@gmail.com",
+          "pass": "c00lendar0fficial"
+        }
+      }
+    ]
   }
 }
