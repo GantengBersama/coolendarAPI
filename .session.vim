@@ -8,19 +8,21 @@ if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
   let s:wipebuf = bufnr('%')
 endif
 set shortmess=aoO
-badd +1 common\models\user.js
-badd +3 server\create-lb-tables.js
+badd +67 common\models\user.js
+badd +6 server\create-lb-tables.js
+badd +0 [BufExplorer]
+badd +0 server\model-config.json
 argglobal
 silent! argdel *
 argadd [BufExplorer]
-edit common\models\user.js
+edit server\model-config.json
 set splitbelow splitright
 set nosplitbelow
 set nosplitright
 wincmd t
 set winheight=1 winwidth=1
 argglobal
-setlocal fdm=syntax
+setlocal fdm=manual
 setlocal fde=0
 setlocal fmr={{{,}}}
 setlocal fdi=#
@@ -28,12 +30,13 @@ setlocal fdl=1
 setlocal fml=1
 setlocal fdn=20
 setlocal fen
-let s:l = 67 - ((15 * winheight(0) + 19) / 38)
+silent! normal! zE
+let s:l = 42 - ((32 * winheight(0) + 19) / 38)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-67
-normal! 05|
+42
+normal! 03|
 tabnext 1
 if exists('s:wipebuf')
   silent exe 'bwipe ' . s:wipebuf

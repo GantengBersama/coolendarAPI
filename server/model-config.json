@@ -39,9 +39,5 @@
   },
   "Email": {
     "dataSource": "email"
-  },
-  "coba": {
-    "dataSource": "coolendar",
-    "public": true
   }
 }
