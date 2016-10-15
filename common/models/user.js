@@ -50,4 +50,40 @@ module.exports = function(User) {
       console.log('> sending password reset email to:', info.email);
     });
   });
+
+  User.changePassword = function(req, callback) {
+      console.log(req);
+    if (!req.accessToken.id) callback("Invalid Token");
+
+    //verify passwords match
+    if (!req.body.password ||
+        !req.body.confirmation ||
+        req.body.password !== req.body.confirmation) {
+      callback('Passwords do not match');
+    }
+
+    User.findById(req.accessToken.userId, function(err, user) {
+      if (err) callback('Invalid token');
+      user.updateAttribute('password', req.body.password, function(err, user) {
+      if (err) callback('Failed to change password');
+        console.log('> password reset processed successfully');
+          callback(null, "Password changed successfully");
+      });
+    });
+  };
+  User.remoteMethod(
+      'changePassword',
+      {
+          http: {
+              path: '/changePassword', 
+              verb: 'post',
+              status: 200,
+              errorStatus: 400
+          },
+          accepts: {
+              arg: 'req', type: 'object', 'http': {source: 'req'},
+          },
+          returns: {arg: 'message', type: 'string'}
+      }
+  );
 };
